@@ -1,0 +1,479 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Flags · CLI11 Tutorial</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Henry Schreiner">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-term/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-hints/plugin-hints.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="options.html" />
+    
+    
+    <link rel="prev" href="basics.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="installation.html">
+            
+                <a href="installation.html">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="basics.html">
+            
+                <a href="basics.html">
+            
+                    
+                    Basics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4" data-path="flags.html">
+            
+                <a href="flags.html">
+            
+                    
+                    Flags
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="options.html">
+            
+                <a href="options.html">
+            
+                    
+                    Options
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="validators.html">
+            
+                <a href="validators.html">
+            
+                    
+                    Validators
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="subcommands.html">
+            
+                <a href="subcommands.html">
+            
+                    
+                    Subcommands and the App
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="an-advanced-example.html">
+            
+                <a href="an-advanced-example.html">
+            
+                    
+                    An advanced example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="config.html">
+            
+                <a href="config.html">
+            
+                    
+                    Configuration files
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="formatting.html">
+            
+                <a href="formatting.html">
+            
+                    
+                    Formatting help output
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="toolkits.html">
+            
+                <a href="toolkits.html">
+            
+                    
+                    Toolkits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="advanced-topics.html">
+            
+                <a href="advanced-topics.html">
+            
+                    
+                    Advanced topics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="internals.html">
+            
+                <a href="internals.html">
+            
+                    
+                    Internals
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Flags</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="adding-flags">Adding Flags</h1>
+<p>The most basic addition to a command line program is a flag. This is simply something that does not take any arguments. Adding a flag in CLI11 is done in one of three ways.</p>
+<h2 id="boolean-flags">Boolean flags</h2>
+<p>The simplest way to add a flag is probably a boolean flag:</p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">bool</span> my_flag;
+app.add_flag(<span class="hljs-string">&quot;-f&quot;</span>, my_flag, <span class="hljs-string">&quot;Optional description&quot;</span>);
+</code></pre>
+<p>This will bind the flag <code>-f</code> to the boolean <code>my_flag</code>. After the parsing step, <code>my_flag</code> will be <code>false</code> if the flag was not found on the command line, or <code>true</code> if it was. By default, it will be allowed any number of times, but if you explicitly<sup><a href="#fn_1" id="reffn_1">1</a></sup> request <code>-&gt;take_last(false)</code>, it will only be allowed once; passing something like <code>./my_app -f -f</code> or <code>./my_app -ff</code> will throw a <code>ParseError</code> with a nice help description.</p>
+<h2 id="integer-flags">Integer flags</h2>
+<p>If you want to allow multiple flags, simply use any integer-like instead of a bool:</p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">int</span> my_flag;
+app.add_flag(<span class="hljs-string">&quot;-f&quot;</span>, my_flag, <span class="hljs-string">&quot;Optional description&quot;</span>);
+</code></pre>
+<p>After the parsing step, <code>my_flag</code> will contain the number of times this flag was found on the command line, including 0 if not found.</p>
+<h2 id="pure-flags">Pure flags</h2>
+<p>Every command that starts with <code>add_</code>, such as the flag commands, return a pointer to the internally stored <code>CLI::Option</code> that describes your addition. If you prefer, you can capture this pointer and use it, and that allows you to skip adding a variable to bind to entirely:</p>
+<pre><code class="lang-cpp">CLI::Option* my_flag = app.add_flag(<span class="hljs-string">&quot;-f&quot;</span>, <span class="hljs-string">&quot;Optional description&quot;</span>);
+</code></pre>
+<p>After parsing, you can use <code>my_flag-&gt;count()</code> to count the number of times this was found. You can also directly use the value (<code>*my_flag</code>) as a bool. <code>CLI::Option</code> will be discussed in more detail later.</p>
+<h2 id="callback-flags">Callback flags</h2>
+<p>If you want to define a callback that runs when you make a flag, you can use <code>add_flag_function</code> (C++11 or newer) or <code>add_flag</code> (C++14 or newer only) to add a callback function. The function should have the signature <code>void(size_t)</code>. This could be useful for a version printout, etc.</p>
+<pre><code>auto callback = [](int count){std::cout &lt;&lt; &quot;This was called &quot; &lt;&lt; count &lt;&lt; &quot; times&quot;;};
+app.add_flag_function(&quot;-c&quot;, callback, &quot;Optional description&quot;);
+</code></pre><h2 id="aliases">Aliases</h2>
+<p>The name string, the first item of every <code>add_</code> method, can contain as many short and long names as you want, separated by commas. For example, <code>&quot;-a,--alpha,-b,--beta&quot;</code> would allow any of those to be recognized on the command line. If you use the same name twice, or if you use the same name in multiple flags, CLI11 will immediately throw a <code>CLI::ConstructionError</code> describing your problem (it will not wait until the parsing step).</p>
+<p>If you want to make an option case insensitive, you can use the <code>-&gt;ignore_case()</code> method on the <code>CLI::Option</code> to do that. For example,</p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">bool</span> flag;
+app.add_flag(<span class="hljs-string">&quot;--flag&quot;</span>, flag)
+    -&gt;ignore_case();
+</code></pre>
+<p>would allow the following to count as passing the flag:</p>
+<pre><code class="lang-term"><pre class="term t-default t-fade"><button class="btn t-copy" data-clipboard-text="./my_app --fLaG"><svg class="octicon octicon-clippy" viewbox="0 0 14 16" version="1.1" width="14" height="14" aria-hidden="true"><path fill-rule="evenodd" d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"/></svg></button><span class="t-line t-prompt-line"><span class="t-prompt">gitbook </span><span class="t-delimiter">$ </span><span class="t-command">./my_app --fLaG</span>
+</span></pre></code></pre>
+<h2 id="example">Example</h2>
+<p>The following program will take several flags:</p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">bool</span> flag_bool;
+app.add_flag(<span class="hljs-string">&quot;--bool,-b&quot;</span>, flag_bool, <span class="hljs-string">&quot;This is a bool flag&quot;</span>);
+
+<span class="hljs-keyword">int</span> flag_int;
+app.add_flag(<span class="hljs-string">&quot;-i,--int&quot;</span>, flag_int, <span class="hljs-string">&quot;This is an int flag&quot;</span>);
+
+CLI::Option *flag_plain = app.add_flag(<span class="hljs-string">&quot;--plain,-p&quot;</span>, <span class="hljs-string">&quot;This is a plain flag&quot;</span>);
+</code></pre>
+<p>The values would be used like this:</p>
+<pre><code class="lang-cpp"><span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;The flags program&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+<span class="hljs-keyword">if</span>(flag_bool)
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Bool flag passed&quot;</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+<span class="hljs-keyword">if</span>(flag_int &gt; <span class="hljs-number">0</span>)
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Flag int: &quot;</span> &lt;&lt; flag_int &lt;&lt; <span class="hljs-built_in">endl</span>;
+<span class="hljs-keyword">if</span>(*flag_plain)
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Flag plain: &quot;</span> &lt;&lt; flag_plain-&gt;count() &lt;&lt; <span class="hljs-built_in">endl</span>;
+</code></pre>
+<p><a href="https://gitlab.com/CLIUtils/CLI11Tutorial/blob/master/code/flags.cpp" target="_blank">Source code</a></p>
+<p>If you compile and run:</p>
+<pre><code class="lang-term"><pre class="term t-default t-fade"><button class="btn t-copy" data-clipboard-text="g++ -std=c++11 flags.cpp
+./a.out -h
+./a.out -bii --plain -i"><svg class="octicon octicon-clippy" viewbox="0 0 14 16" version="1.1" width="14" height="14" aria-hidden="true"><path fill-rule="evenodd" d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"/></svg></button><span class="t-line t-prompt-line"><span class="t-prompt">gitbook</span><span class="t-pathsep">:</span><span class="t-path">examples </span><span class="t-delimiter">$ </span><span class="t-command">g++ -std=c++11 flags.cpp</span>
+</span><span class="t-line t-prompt-line"><span class="t-prompt">gitbook</span><span class="t-pathsep">:</span><span class="t-path">examples </span><span class="t-delimiter">$ </span><span class="t-command">./a.out -h</span>
+</span><span class="t-line">Flag example program
+</span><span class="t-line">Usage: ./a.out [OPTIONS]
+</span><span class="t-line">
+</span><span class="t-line">Options:
+</span><span class="t-line">  -h,--help                   Print this help message and exit
+</span><span class="t-line">  -b,--bool                   This is a bool flag
+</span><span class="t-line">  -i,--int                    This is an int flag
+</span><span class="t-line">  -p,--plain                  This is a plain flag
+</span><span class="t-line">
+</span><span class="t-line t-prompt-line"><span class="t-prompt">gitbook</span><span class="t-pathsep">:</span><span class="t-path">examples </span><span class="t-delimiter">$ </span><span class="t-command">./a.out -bii --plain -i</span>
+</span><span class="t-line">The flags program
+</span><span class="t-line">Bool flag passed
+</span><span class="t-line">Flag int: 3
+</span><span class="t-line">Flag plain: 1
+</span></pre></code></pre>
+<p><sup><a href="#fn_1" id="reffn_1">1</a></sup> It will not inherit this from the parent defaults, since this is often useful even if you don&apos;t want all options to allow multiple passed options.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="basics.html" class="navigation navigation-prev " aria-label="Previous page: Basics">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="options.html" class="navigation navigation-next " aria-label="Next page: Options">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Flags","level":"1.4","depth":1,"next":{"title":"Options","level":"1.5","depth":1,"path":"chapters/options.md","ref":"chapters/options.md","articles":[]},"previous":{"title":"Basics","level":"1.3","depth":1,"path":"chapters/basics.md","ref":"chapters/basics.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","term","hints"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search":{},"term":{"copyButtons":true,"fade":true,"lineStyles":true,"prompt":"(?<prompt>[^\\$^#^:]*)(?<pathsep>:?)(?<path>[^\\$^#]*?)(?<delimiter>[\\$#] )(?<command>.*)$","style":"default"},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"include-codeblock":{"check":false,"edit":false,"fixlang":true,"lang":"","template":"default","theme":"chrome","unindent":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Henry Schreiner","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"CLI11 Tutorial","gitbook":"*","description":"A set of examples and detailed information about CLI11"},"file":{"path":"chapters/flags.md","mtime":"2019-10-26T11:08:42.826Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-26T11:14:22.031Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-term/clipboard.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-term/initclip.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-term/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

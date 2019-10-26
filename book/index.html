@@ -1,0 +1,454 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Introduction · CLI11 Tutorial</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Henry Schreiner">
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-term/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-hints/plugin-hints.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="chapters/installation.html" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter active" data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="chapters/installation.html">
+            
+                <a href="chapters/installation.html">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="chapters/basics.html">
+            
+                <a href="chapters/basics.html">
+            
+                    
+                    Basics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="chapters/flags.html">
+            
+                <a href="chapters/flags.html">
+            
+                    
+                    Flags
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="chapters/options.html">
+            
+                <a href="chapters/options.html">
+            
+                    
+                    Options
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="chapters/validators.html">
+            
+                <a href="chapters/validators.html">
+            
+                    
+                    Validators
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="chapters/subcommands.html">
+            
+                <a href="chapters/subcommands.html">
+            
+                    
+                    Subcommands and the App
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="chapters/an-advanced-example.html">
+            
+                <a href="chapters/an-advanced-example.html">
+            
+                    
+                    An advanced example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="chapters/config.html">
+            
+                <a href="chapters/config.html">
+            
+                    
+                    Configuration files
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="chapters/formatting.html">
+            
+                <a href="chapters/formatting.html">
+            
+                    
+                    Formatting help output
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="chapters/toolkits.html">
+            
+                <a href="chapters/toolkits.html">
+            
+                    
+                    Toolkits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="chapters/advanced-topics.html">
+            
+                <a href="chapters/advanced-topics.html">
+            
+                    
+                    Advanced topics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="chapters/internals.html">
+            
+                <a href="chapters/internals.html">
+            
+                    
+                    Internals
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Introduction</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="cli11-an-introduction">CLI11: An introduction</h1>
+<p>This gitbook is designed to provide an introduction to using the CLI11 library to write your own command line programs. The library is designed to be clean, intuitive, but powerful. There are no requirements beyond C++11 support (and even <code>&lt;regex&gt;</code> support not required). It works on Mac, Linux, and Windows, and has 100% test coverage on all three systems. You can simply drop in a single header file (<code>CLI11.hpp</code> available in <a href="https://github.com/CLIUtils/CLI11/releases" target="_blank">releases</a>) to use CLI11 in your own application. Other ways to integrate it into a build system are listed in the <a href="https://github.com/CLIUtils/CLI11/blob/master/README.md" target="_blank">README</a>.</p>
+<p>The library was inspired the Python libraries <a href="http://plumbum.readthedocs.io/en/latest/" target="_blank">Plumbum</a> and <a href="http://click.pocoo.org/5/" target="_blank">Click</a>, and incorporates many of their user friendly features. The library is extensively documented, with a <a href="https://github.com/CLIUtils/CLI11/blob/master/README.md" target="_blank">friendly introduction</a>, this tutorial book, and more technical <a href="https://cliutils.github.io/CLI11" target="_blank">API docs</a>.</p>
+<blockquote>
+<p>Feel free to contribute to <a href="https://gitlab.com/CLIUtils/CLI11Tutorial" target="_blank">this documentation here</a> if something can be improved!</p>
+</blockquote>
+<p>The syntax is simple and scales from a basic application to a massive physics analysis with multiple models and many parameters and switches. For example, this is a simple program that has an optional parameter that defaults to 1:</p>
+<pre><code class="lang-term"><pre class="term t-default t-fade"><button class="btn t-copy" data-clipboard-text="./a.out
+./a.out -p 4
+./a.out --help"><svg class="octicon octicon-clippy" viewbox="0 0 14 16" version="1.1" width="14" height="14" aria-hidden="true"><path fill-rule="evenodd" d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"/></svg></button><span class="t-line t-prompt-line"><span class="t-prompt">gitbook </span><span class="t-delimiter">$ </span><span class="t-command">./a.out</span>
+</span><span class="t-line">Parameter value: 0
+</span><span class="t-line">
+</span><span class="t-line t-prompt-line"><span class="t-prompt">gitbook </span><span class="t-delimiter">$ </span><span class="t-command">./a.out -p 4</span>
+</span><span class="t-line">Parameter value: 4
+</span><span class="t-line">
+</span><span class="t-line t-prompt-line"><span class="t-prompt">gitbook </span><span class="t-delimiter">$ </span><span class="t-command">./a.out --help</span>
+</span><span class="t-line">App description
+</span><span class="t-line">Usage: ./a.out [OPTIONS]
+</span><span class="t-line">
+</span><span class="t-line">Options:
+</span><span class="t-line">  -h,--help                   Print this help message and exit
+</span><span class="t-line">  -p INT                      Parameter
+</span></pre></code></pre>
+<p>Like any good command line application, help is provided. This program can be implemented in 10 lines:</p>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&quot;CLI/CLI.hpp&quot;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> **argv)</span> </span>{
+    CLI::App app{<span class="hljs-string">&quot;App description&quot;</span>};
+
+    <span class="hljs-comment">// Define options</span>
+    <span class="hljs-keyword">int</span> p = <span class="hljs-number">0</span>;
+    app.add_option(<span class="hljs-string">&quot;-p&quot;</span>, p, <span class="hljs-string">&quot;Parameter&quot;</span>);
+
+    CLI11_PARSE(app, argc, argv);
+
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Parameter value: &quot;</span> &lt;&lt; p &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p><a href="https://gitlab.com/CLIUtils/CLI11Tutorial/blob/master/code/intro.cpp" target="_blank">Source code</a></p>
+<p>Unlike some other libraries, this is enough to exit correctly and cleanly if help is requested or if incorrect arguments are passed. You can try this example out for yourself. To compile with GCC:</p>
+<pre><code class="lang-term"><pre class="term t-default t-fade"><button class="btn t-copy" data-clipboard-text="c++ -std=c++11 intro.cpp"><svg class="octicon octicon-clippy" viewbox="0 0 14 16" version="1.1" width="14" height="14" aria-hidden="true"><path fill-rule="evenodd" d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"/></svg></button><span class="t-line t-prompt-line"><span class="t-prompt">gitbook</span><span class="t-pathsep">:</span><span class="t-path">examples </span><span class="t-delimiter">$ </span><span class="t-command">c++ -std=c++11 intro.cpp</span>
+</span></pre></code></pre>
+<p>Much more complicated options are handled elegantly:</p>
+<pre><code class="lang-cpp"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> req_real_file;
+app.add_option(<span class="hljs-string">&quot;-f,--file&quot;</span>, file, <span class="hljs-string">&quot;Require an existing file&quot;</span>)
+  -&gt;required()
+  -&gt;check(CLI::ExistingFile);
+</code></pre>
+<p>You can use any valid type; the above example could have used a <code>boost::file_system</code> file instead of a <code>std::string</code>. The value is a real value and does not require any special lookups to access. You do not have to risk typos by repeating the values after parsing like some libraries require. The library also handles positional arguments, flags, fixed or unlimited repeating options, interdependent options, flags, custom validators, help groups, and more.</p>
+<p>You can use subcommands, as well. Subcommands support callback lambda functions when parsed, or they can be checked later. You can infinitely nest subcommands, and each is a full <code>App</code> instance, supporting everything listed above.</p>
+<p>Reading/producing <code>.ini</code> files for configuration is also supported, as is using environment variables as input. The base <code>App</code> can be subclassed and customized for use in a toolkit (like <a href="https://github.com/GooFit/GooFit" target="_blank">GooFit</a>). All the standard shell idioms, like <code>--</code>, work as well.</p>
+<p>CLI11 was developed at the <a href="http://www.uc.edu" target="_blank">University of Cincinnati</a> in support of the <a href="https://github.com/GooFit/GooFit" target="_blank">GooFit</a> library under <a href="https://nsf.gov/awardsearch/showAward?AWD_ID=1414736" target="_blank">NSF Award 1414736</a>. It was featured in a <a href="http://diana-hep.org" target="_blank">DIANA/HEP</a> meeting at CERN. Please give it a try! Feedback is always welcome.</p>
+<p>This guide was based on CLI11 1.7.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="chapters/installation.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Installation">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Installation","level":"1.2","depth":1,"path":"chapters/installation.md","ref":"chapters/installation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","term","hints"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search":{},"term":{"copyButtons":true,"fade":true,"lineStyles":true,"prompt":"(?<prompt>[^\\$^#^:]*)(?<pathsep>:?)(?<path>[^\\$^#]*?)(?<delimiter>[\\$#] )(?<command>.*)$","style":"default"},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"include-codeblock":{"check":false,"edit":false,"fixlang":true,"lang":"","template":"default","theme":"chrome","unindent":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Henry Schreiner","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"CLI11 Tutorial","gitbook":"*","description":"A set of examples and detailed information about CLI11"},"file":{"path":"README.md","mtime":"2019-10-26T11:08:42.826Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-26T11:14:22.031Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-term/clipboard.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-term/initclip.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-term/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

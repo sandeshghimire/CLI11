@@ -1,0 +1,625 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Options · CLI11 Tutorial</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Henry Schreiner">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-term/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-hints/plugin-hints.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="validators.html" />
+    
+    
+    <link rel="prev" href="flags.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="installation.html">
+            
+                <a href="installation.html">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="basics.html">
+            
+                <a href="basics.html">
+            
+                    
+                    Basics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="flags.html">
+            
+                <a href="flags.html">
+            
+                    
+                    Flags
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5" data-path="options.html">
+            
+                <a href="options.html">
+            
+                    
+                    Options
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="validators.html">
+            
+                <a href="validators.html">
+            
+                    
+                    Validators
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="subcommands.html">
+            
+                <a href="subcommands.html">
+            
+                    
+                    Subcommands and the App
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="an-advanced-example.html">
+            
+                <a href="an-advanced-example.html">
+            
+                    
+                    An advanced example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="config.html">
+            
+                <a href="config.html">
+            
+                    
+                    Configuration files
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="formatting.html">
+            
+                <a href="formatting.html">
+            
+                    
+                    Formatting help output
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="toolkits.html">
+            
+                <a href="toolkits.html">
+            
+                    
+                    Toolkits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="advanced-topics.html">
+            
+                <a href="advanced-topics.html">
+            
+                    
+                    Advanced topics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="internals.html">
+            
+                <a href="internals.html">
+            
+                    
+                    Internals
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Options</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="options">Options</h1>
+<h2 id="simple-options">Simple options</h2>
+<p>The most versatile addition to a command line program is a option. This is like a flag, but it takes an argument. CLI11 handles all the details for many types of options for you, based on their type. To add an option:</p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">int</span> int_option;
+app.add_option(<span class="hljs-string">&quot;-i&quot;</span>, int_option, <span class="hljs-string">&quot;Optional description&quot;</span>);
+</code></pre>
+<p>This will bind the option <code>-i</code> to the integer <code>int_option</code>. On the command line, a single value that can be converted to an integer will be expected. Non-integer results will fail. If that option is not given, CLI11 will not touch the initial value. This allows you to set up defaults by simply setting your value beforehand. If you want CLI11 to display your default value, you can add the optional final argument <code>true</code> when you add the option. If you do not add this, you do not even need your option value to be printable<sup><a href="#fn_1" id="reffn_1">1</a></sup>.</p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">int</span> int_option = <span class="hljs-number">0</span>;
+app.add_option(<span class="hljs-string">&quot;-i&quot;</span>, int_option, <span class="hljs-string">&quot;Optional description&quot;</span>, <span class="hljs-literal">true</span>);
+</code></pre>
+<p>You can use any C++ int-like type, not just <code>int</code>. CLI11 understands the following categories of types:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>CLI11</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>int-like</td>
+<td>Integer conversion up to 64-bit, can be unsigned</td>
+</tr>
+<tr>
+<td>float-like</td>
+<td>Floating point conversions</td>
+</tr>
+<tr>
+<td>string-like</td>
+<td>Anything else that can be shifted into a StringStream</td>
+</tr>
+<tr>
+<td>vector-like</td>
+<td>A vector of the above three types (see below)</td>
+</tr>
+<tr>
+<td>function</td>
+<td>A function that takes an array of strings and returns a string that describes the conversion failure or empty for success. May be the empty function. (<code>{}</code>)</td>
+</tr>
+</tbody>
+</table>
+<p>By default, CLI11 will assume that an option is optional, and one value is expected if you do not use a vector. You can change this on a specific option using option modifiers.</p>
+<h2 id="positional-options-and-aliases">Positional options and aliases</h2>
+<p>When you give an option on the command line without a name, that is a positional option. Positional options are accepted in the same order they are defined. So, for example:</p>
+<pre><code class="lang-term"><pre class="term t-default t-fade"><button class="btn t-copy" data-clipboard-text="./a.out one --two three four"><svg class="octicon octicon-clippy" viewbox="0 0 14 16" version="1.1" width="14" height="14" aria-hidden="true"><path fill-rule="evenodd" d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"/></svg></button><span class="t-line t-prompt-line"><span class="t-prompt">gitbook</span><span class="t-pathsep">:</span><span class="t-path">examples </span><span class="t-delimiter">$ </span><span class="t-command">./a.out one --two three four</span>
+</span></pre></code></pre>
+<p>The string <code>one</code> would have to be the first positional option. If <code>--two</code> is a flag, then the remaining two strings are positional. If <code>--two</code> is a one-argument option, then <code>four</code> is the second positional. If <code>--two</code> accepts two or more arguments, then there are no more positionals.</p>
+<p>To make a positional option, you simply give CLI11 one name that does not start with a dash. You can have as many (non-overlapping) names as you want for an option, but only one positional name. So the following name string is valid:</p>
+<pre><code class="lang-cpp"><span class="hljs-string">&quot;-a,-b,--alpha,--beta,mypos&quot;</span>
+</code></pre>
+<p>This would make two short option aliases, two long option alias, and the option would be also be accepted as a positional.</p>
+<h2 id="vectors-of-options">Vectors of options</h2>
+<p>If you use a vector instead of a plain option, you can accept more than one value on the command line. By default, a vector accepts as many options as possible, until the next value that could be a valid option name. You can specify a set number using an option modifier <code>-&gt;expected(N)</code>. (The default unlimited behavior on vectors is restore with <code>N=-1</code>) CLI11 does not differentiate between these two methods for unlimited acceptance options:<sup><a href="#fn_2" id="reffn_2">2</a></sup></p>
+<table>
+<thead>
+<tr>
+<th>Separate names</th>
+<th>Combined names</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--vec 1 --vec 2</code></td>
+<td><code>--vec 1 2</code></td>
+</tr>
+</tbody>
+</table>
+<p>The original version did allow the option system to access information on the grouping of options received, but was removed for simplicity.</p>
+<p>An example of setting up a vector option:</p>
+<pre><code class="lang-cpp"><span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; int_vec;
+app.add_option(<span class="hljs-string">&quot;--vec&quot;</span>, int_vec, <span class="hljs-string">&quot;My vector option&quot;</span>);
+</code></pre>
+<p>Vectors will be replaced by the parsed content if the option is given on the command line.</p>
+<h2 id="option-modifiers">Option modifiers</h2>
+<p>When you call <code>add_option</code>, you get a pointer to the added option. You can use that to add option modifiers. A full listing of the option modifiers:</p>
+<table>
+<thead>
+<tr>
+<th>Modifier</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-&gt;required()</code></td>
+<td>The program will quit if this option is not present. This is <code>mandatory</code> in Plumbum, but required options seems to be a more standard term. For compatibility, <code>-&gt;mandatory()</code> also works.</td>
+</tr>
+<tr>
+<td><code>-&gt;expected(N)</code></td>
+<td>Take <code>N</code> values instead of as many as possible, only for vector args.</td>
+</tr>
+<tr>
+<td><code>-&gt;needs(opt)</code></td>
+<td>This option requires another option to also be present, opt is an <code>Option</code> pointer.</td>
+</tr>
+<tr>
+<td><code>-&gt;excludes(opt)</code></td>
+<td>This option cannot be given with <code>opt</code> present, opt is an <code>Option</code> pointer.</td>
+</tr>
+<tr>
+<td><code>-&gt;envname(name)</code></td>
+<td>Gets the value from the environment if present and not passed on the command line.</td>
+</tr>
+<tr>
+<td><code>-&gt;group(name)</code></td>
+<td>The help group to put the option in. No effect for positional options. Defaults to <code>&quot;Options&quot;</code>. <code>&quot;Hidden&quot;</code> will not show up in the help print.</td>
+</tr>
+<tr>
+<td><code>-&gt;ignore_case()</code></td>
+<td>Ignore the case on the command line (also works on subcommands, does not affect arguments).</td>
+</tr>
+<tr>
+<td><code>-&gt;ignore_underscore()</code></td>
+<td>Ignore any underscores on the command line (also works on subcommands, does not affect arguments, new in CLI11 1.7).</td>
+</tr>
+<tr>
+<td><code>-&gt;multi_option_policy(CLI::MultiOptionPolicy::Throw)</code></td>
+<td>Sets the policy if 1 argument expected but this was received on the command line several times. <code>Throw</code>ing an error is the default, but <code>TakeLast</code>, <code>TakeFirst</code>, and <code>Join</code> are also available. See the next three lines for shortcuts to set this more easily.</td>
+</tr>
+<tr>
+<td><code>-&gt;take_last()</code></td>
+<td>Only use the last option if passed several times. This is always true by default for bool options, regardless of the app default, but can be set to false explicitly with <code>-&gt;multi_option_policy()</code>.</td>
+</tr>
+<tr>
+<td><code>-&gt;take_first()</code></td>
+<td>sets <code>-&gt;multi_option_policy(CLI::MultiOptionPolicy::TakeFirst)</code></td>
+</tr>
+<tr>
+<td><code>-&gt;join()</code></td>
+<td>sets <code>-&gt;multi_option_policy(CLI::MultiOptionPolicy::Join)</code>, which uses newlines to join all arguments into a single string output.</td>
+</tr>
+<tr>
+<td><code>-&gt;check(CLI::ExistingFile)</code></td>
+<td>Requires that the file exists if given.</td>
+</tr>
+<tr>
+<td><code>-&gt;check(CLI::ExistingDirectory)</code></td>
+<td>Requires that the directory exists.</td>
+</tr>
+<tr>
+<td><code>-&gt;check(CLI::NonexistentPath)</code></td>
+<td>Requires that the path does not exist.</td>
+</tr>
+<tr>
+<td><code>-&gt;check(CLI::Range(min,max))</code></td>
+<td>Requires that the option be between min and max (make sure to use floating point if needed). Min defaults to 0.</td>
+</tr>
+<tr>
+<td><code>-&gt;each(void(std::string))</code></td>
+<td>Run a function on each parsed value, <em>in order</em>.</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>-&gt;check(...)</code> modifiers adds a callback function of the form <code>bool function(std::string)</code> that runs on every value that the option receives, and returns a value that tells CLI11 whether the check passed or failed.</p>
+<h2 id="using-the-clioption-pointer">Using the <code>CLI::Option</code> pointer</h2>
+<p>Each of the option creation mechanisms returns a pointer to the internally stored option. If you save that pointer, you can continue to access the option, and change setting on it later. The Option object can also be converted to a bool to see if it was passed, or <code>-&gt;count()</code> can be used to see how many times the option was passed. Since flags are also options, the same methods work on them.</p>
+<pre><code class="lang-cpp">CLI::Option* opt = app.add_flag(<span class="hljs-string">&quot;--opt&quot;</span>);
+
+CLI11_PARSE(app, argv, argc);
+
+<span class="hljs-keyword">if</span>(*opt)
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Flag recieved &quot;</span> &lt;&lt; opt-&gt;count() &lt;&lt; <span class="hljs-string">&quot; times.&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+</code></pre>
+<h2 id="inheritance-of-defaults">Inheritance of defaults</h2>
+<p>One of CLI11&apos;s systems to allow customizability without high levels of verbosity is the inheritance system. You can set default values on the parent <code>App</code>, and all options and subcommands created from it remember the default values at the point of creation. The default value for Options, specifically, are accessible through the <code>option_defaults()</code> method. There are four settings that can be set and inherited:</p>
+<ul>
+<li><code>group</code>: The group name starts as &quot;Options&quot;</li>
+<li><code>required</code>: If the option must be given. Defaults to <code>false</code>. Is ignored for flags.</li>
+<li><code>multi_option_policy</code>: What to do if several copies of an option are passed and one value is expected. Defaults to <code>CLI::MultiOptionPolicy::Throw</code>. This is also used for bool flags, but they always are created with the value <code>CLI::MultiOptionPolicy::TakeLast</code> regardless of the default, so that multiple bool flags does not cause an error. But you can override that flag by flag.</li>
+<li><code>ignore_case</code>: Allow any mixture of cases for the option or flag name</li>
+</ul>
+<p>An example of usage:</p>
+<pre><code>app.option_defauts()-&gt;ignore_case()-&gt;group(&quot;Required&quot;);
+
+app.add_flag(&quot;--CaSeLeSs&quot;);
+app.get_group() // is &quot;Required&quot;
+</code></pre><p>Groups are mostly for visual organisation, but an empty string for a group name will hide the option.</p>
+<h2 id="listing-of-specialty-options">Listing of specialty options:</h2>
+<p>Besides <code>add_option</code> and <code>add_flag</code>, there are several special ways to create options for sets and complex numbers.</p>
+<h3 id="sets">Sets</h3>
+<p>You can add a set with <code>add_set</code>, where you give a variable to set and a <code>std::set</code> of choices to pick from. There also is a <code>add_set_ignore_case</code> version which ignores case when set matching. If you use an existing set instead of an inline one, you can edit the set after adding it and changes will be reflected in the set checking and help message.</p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">int</span> val;
+app.add_set(<span class="hljs-string">&quot;--even&quot;</span>, val, {<span class="hljs-number">0</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">6</span>,<span class="hljs-number">8</span>});
+</code></pre>
+<h3 id="complex-numbers">Complex numbers</h3>
+<p>You can also add a complex number. This type just needs to support a <code>(T x, T y)</code> constructor and be printable. You can also pass one extra argument that will set the label of the type; by default it is &quot;COMPLEX&quot;.</p>
+<pre><code class="lang-cpp"><span class="hljs-built_in">std</span>::<span class="hljs-keyword">complex</span>&lt;<span class="hljs-keyword">float</span>&gt; val;
+app.add_complex(<span class="hljs-string">&quot;--cplx&quot;</span>, val);
+</code></pre>
+<h3 id="optionals-new-in-cli11-15">Optionals (New in CLI11 1.5)</h3>
+<p>If you have a compiler with <code>__has_include</code>, you can use <code>std::optional</code>, <code>std::experimental::optional</code>, and <code>boost::optional</code> in <code>add_option</code>. You can manually enforce support for one of these by defining the corresponding macro before including CLI11 (or in your build system). For example:</p>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> CLI11_BOOST_OPTIONAL</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;CLI/CLI.hpp&gt;</span></span>
+
+...
+
+boost::optional&lt;<span class="hljs-keyword">int</span>&gt; x;
+app.add_option(<span class="hljs-string">&quot;-x&quot;</span>, x);
+
+CLI11_PARSE(app, argc, argv);
+
+<span class="hljs-keyword">if</span>(x)
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; *x &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+</code></pre>
+<h3 id="windows-style-options-new-in-cli11-17">Windows style options (New in CLI11 1.7)</h3>
+<p>You can also set the app setting <code>app-&gt;allow_windows_style_options()</code> to allow windows style options to also be recognized on the command line:</p>
+<ul>
+<li><code>/a</code> (flag)</li>
+<li><code>/f filename</code> (option)</li>
+<li><code>/long</code> (long flag)</li>
+<li><code>/file filename</code> (space)</li>
+<li><code>/file:filename</code> (colon)</li>
+</ul>
+<p>Windows style options do not allow combining short options or values not separated from the short option like with <code>-</code> options. You still specify option names in the same manor as on Linux with single and double dashes when you use the <code>add_*</code> functions, and the Linux style on the command line will still work. If a long and a short option share the same name, the option will match on the first one defined.</p>
+<blockquote id="fn_1">
+<sup>1</sup>. For example, enums are not printable to <code>std::cout</code>.<a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#x21A9;</a>
+</blockquote>
+<blockquote id="fn_2">
+<sup>2</sup>. There is a small difference. An combined unlimited option will not prioritize over a positional that could still accept values.<a href="#reffn_2" title="Jump back to footnote [2] in the text."> &#x21A9;</a>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="flags.html" class="navigation navigation-prev " aria-label="Previous page: Flags">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="validators.html" class="navigation navigation-next " aria-label="Next page: Validators">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Options","level":"1.5","depth":1,"next":{"title":"Validators","level":"1.6","depth":1,"path":"chapters/validators.md","ref":"chapters/validators.md","articles":[]},"previous":{"title":"Flags","level":"1.4","depth":1,"path":"chapters/flags.md","ref":"chapters/flags.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","term","hints"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search":{},"term":{"copyButtons":true,"fade":true,"lineStyles":true,"prompt":"(?<prompt>[^\\$^#^:]*)(?<pathsep>:?)(?<path>[^\\$^#]*?)(?<delimiter>[\\$#] )(?<command>.*)$","style":"default"},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"include-codeblock":{"check":false,"edit":false,"fixlang":true,"lang":"","template":"default","theme":"chrome","unindent":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Henry Schreiner","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"CLI11 Tutorial","gitbook":"*","description":"A set of examples and detailed information about CLI11"},"file":{"path":"chapters/options.md","mtime":"2019-10-26T11:08:42.826Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-26T11:14:22.031Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-term/clipboard.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-term/initclip.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-term/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

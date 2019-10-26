@@ -1,0 +1,471 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Formatting help output · CLI11 Tutorial</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Henry Schreiner">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-term/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-hints/plugin-hints.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="toolkits.html" />
+    
+    
+    <link rel="prev" href="config.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="installation.html">
+            
+                <a href="installation.html">
+            
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="basics.html">
+            
+                <a href="basics.html">
+            
+                    
+                    Basics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="flags.html">
+            
+                <a href="flags.html">
+            
+                    
+                    Flags
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="options.html">
+            
+                <a href="options.html">
+            
+                    
+                    Options
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="validators.html">
+            
+                <a href="validators.html">
+            
+                    
+                    Validators
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="subcommands.html">
+            
+                <a href="subcommands.html">
+            
+                    
+                    Subcommands and the App
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="an-advanced-example.html">
+            
+                <a href="an-advanced-example.html">
+            
+                    
+                    An advanced example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="config.html">
+            
+                <a href="config.html">
+            
+                    
+                    Configuration files
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.10" data-path="formatting.html">
+            
+                <a href="formatting.html">
+            
+                    
+                    Formatting help output
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="toolkits.html">
+            
+                <a href="toolkits.html">
+            
+                    
+                    Toolkits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="advanced-topics.html">
+            
+                <a href="advanced-topics.html">
+            
+                    
+                    Advanced topics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="internals.html">
+            
+                <a href="internals.html">
+            
+                    
+                    Internals
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Formatting help output</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="formatting-help-output">Formatting help output</h1>
+<p><div class="alert alert-info hints-alert"><div class="hints-icon"><i class="fa fa-info-circle"></i></div><div class="hints-container"><p>New in CLI11 1.6</p>
+</div></div></p>
+<h2 id="customizing-an-existing-formatter">Customizing an existing formatter</h2>
+<p>In CLI11, you can control the output of the help printout in full or in part. The default formatter was written in such a way as to be customizable. You can use <code>app.get_formatter()</code> to get the current formatter. The formatter you set will be inherited by subcommands that are created after you set the formatter.</p>
+<p>There are several configuration options that you can set:</p>
+<table>
+<thead>
+<tr>
+<th>Set method</th>
+<th>Description</th>
+<th>Availability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>column_width(width)</code></td>
+<td>The width of the columns</td>
+<td>Both</td>
+</tr>
+<tr>
+<td><code>label(key, value)</code></td>
+<td>Set a label to a different value</td>
+<td>Both</td>
+</tr>
+</tbody>
+</table>
+<p>Labels will map the built in names and type names from key to value if present. For example, if you wanted to change the width of the columns to 40 and the <code>REQUIRED</code> label from <code>(REQUIRED)</code> to <code>(MUST HAVE)</code>:</p>
+<pre><code class="lang-cpp">app.get_formatter()-&gt;column_width(<span class="hljs-number">40</span>);
+app.get_formatter()-&gt;label(<span class="hljs-string">&quot;REQUIRED&quot;</span>, <span class="hljs-string">&quot;(MUST HAVE)&quot;</span>);
+</code></pre>
+<h2 id="subclassing">Subclassing</h2>
+<p>You can further configure pieces of the code while still keeping most of the formatting intact by subclassing either formatter and replacing any of the methods with your own. The formatters use virtual functions most places, so you are free to add or change anything about them. For example, if you wanted to remove the info that shows up between the option name and the description:</p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">class</span> MyFormatter : <span class="hljs-keyword">public</span> CLI::Formatter {
+  <span class="hljs-keyword">public</span>:
+    <span class="hljs-built_in">std</span>::<span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">make_opts</span><span class="hljs-params">(<span class="hljs-keyword">const</span> CLI::Option *)</span> <span class="hljs-keyword">const</span> override </span>{<span class="hljs-keyword">return</span> <span class="hljs-string">&quot;&quot;</span>;}
+};
+app.formatter(<span class="hljs-built_in">std</span>::make_shared&lt;MyFormatter&gt;());
+</code></pre>
+<p>Look at the class definitions in <code>FormatterFwd.hpp</code> or the method definitions in <code>Formatter.hpp</code> to see what methods you have access to and how they are put together.</p>
+<h2 id="anatomy-of-a-help-message">Anatomy of a help message</h2>
+<p>This is a normal printout, with <code>&lt;&gt;</code> indicating the methods used to produce each line.</p>
+<pre><code>&lt;make_description(app)&gt;
+&lt;make_usage(app)&gt;
+&lt;make_positionals(app)&gt;
+  &lt;make_group(app, &quot;Positionals&quot;, true, filter&gt;
+&lt;make_groups(app, mode)&gt;
+  &lt;make_group(app, &quot;Option Group 1&quot;), false, filter&gt;
+  &lt;make_group(app, &quot;Option Group 2&quot;), false, filter&gt;
+  ...
+&lt;make_subcommands(app)&gt;
+  &lt;make_subcommand(sub1, Mode::Normal)&gt;
+  &lt;make_subcommand(sub2, Mode::Normal)&gt;
+&lt;make_footer(app)&gt;
+</code></pre><p><code>make_usage</code> calls <code>make_option_usage(opt)</code> on all the positionals to build that part of the line. <code>make_subcommand</code> passes the subcommand as the app pointer.</p>
+<p>The <code>make_groups</code> print the group name then call <code>make_option(o)</code> on the options listed in that group. The normal printout for an option looks like this:</p>
+<pre><code>        make_option_opts(o)
+            &#x250C;&#x2500;&#x2500;&#x2500;&#x2534;&#x2500;&#x2500;&#x2500;&#x2500;&#x2510;
+ -n,--name  (REQUIRED)      This is a description
+&#x2514;&#x2500;&#x2500;&#x2500;&#x2500;&#x252C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2518;                &#x2514;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x252C;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2518;
+make_option_name(o,p)        make_option_desc(o)
+</code></pre><p>Notes:</p>
+<ul>
+<li><code>*1</code>: This signature depends on whether the call is from a positional or optional.</li>
+<li><code>o</code> is opt pointer, <code>p</code> is true if positional.</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="config.html" class="navigation navigation-prev " aria-label="Previous page: Configuration files">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="toolkits.html" class="navigation navigation-next " aria-label="Next page: Toolkits">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Formatting help output","level":"1.10","depth":1,"next":{"title":"Toolkits","level":"1.11","depth":1,"path":"chapters/toolkits.md","ref":"chapters/toolkits.md","articles":[]},"previous":{"title":"Configuration files","level":"1.9","depth":1,"path":"chapters/config.md","ref":"chapters/config.md","articles":[]},"dir":"ltr"},"config":{"plugins":["include-codeblock","term","hints"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search":{},"term":{"copyButtons":true,"fade":true,"lineStyles":true,"prompt":"(?<prompt>[^\\$^#^:]*)(?<pathsep>:?)(?<path>[^\\$^#]*?)(?<delimiter>[\\$#] )(?<command>.*)$","style":"default"},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"include-codeblock":{"check":false,"edit":false,"fixlang":true,"lang":"","template":"default","theme":"chrome","unindent":true},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Henry Schreiner","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"CLI11 Tutorial","gitbook":"*","description":"A set of examples and detailed information about CLI11"},"file":{"path":"chapters/formatting.md","mtime":"2019-10-26T11:08:42.826Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-26T11:14:22.031Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-term/clipboard.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-term/initclip.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-term/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
